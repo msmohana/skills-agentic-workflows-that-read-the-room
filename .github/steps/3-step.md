@@ -17,7 +17,7 @@ The workflow uses `safe-outputs: create-pull-request`, so the agent can draft we
 
 1. Confirm the repository still has the `COPILOT_GITHUB_TOKEN` Actions secret from Step 1.
 
-   If you need to check, go to **Settings** > **Secrets and variables** > **Actions** in your copied exercise repository. You should see `COPILOT_GITHUB_TOKEN` listed as a repository secret.
+   If you need to check, go to **Settings** > **Secrets and variables** > **Actions** in your copied exercise repository. You should see `COPILOT_GITHUB_TOKEN` listed as a repository secret. Its presence alone does not confirm that the token is usable: it must be an unexpired fine-grained token with **Copilot Requests: Read**, created by an account with an active Copilot subscription.
 
 2. Open the **Copilot Chat panel** using `Ctrl + Alt + I` (Windows) or `Ctrl + Cmd + I` (Mac). Select the **agentic-workflows** agent from the Copilot Chat agent selector to update Mona's updater `.github/workflows/update-github-info.md`.
 
@@ -82,6 +82,7 @@ The workflow uses `safe-outputs: create-pull-request`, so the agent can draft we
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
+- If the agent job fails during startup with HTTP 401 or says it cannot resolve the `auto` model because the model catalog is unavailable, recreate the fine-grained token with **Copilot Requests: Read** enabled and replace `COPILOT_GITHUB_TOKEN` in **Settings** > **Secrets and variables** > **Actions**. Confirm the token owner's Copilot subscription is active, then rerun the workflow.
 - If the workflow fails before the agent starts, confirm `COPILOT_GITHUB_TOKEN` is configured as an Actions secret.
 - If compilation fails, make sure `.github/workflows/update-github-info.md` includes `safe-outputs`, `create-pull-request`, `workflow_dispatch`, and a `network` allowlist for the GitHub Blog and Awesome Copilot sources.
 - If no pull request appears, open the failed workflow run from the **Actions** tab and review the logs.

@@ -48,7 +48,7 @@ Let's start in the pre-configured Codespace for this exercise. The dev container
 
    This standalone installer is the easiest path in Codespaces because it does not depend on interactive `gh extension install` authentication.
 
-6. Set up the `COPILOT_GITHUB_TOKEN` repository secret that the Copilot engine will use later in the exercise.
+6. Set up the `COPILOT_GITHUB_TOKEN` repository secret that the Copilot engine will use later in the exercise. The GitHub account that owns the token must have an active Copilot subscription.
 
    1. [Create a fine-grained personal access token](https://github.com/settings/personal-access-tokens/new?name=COPILOT_GITHUB_TOKEN&description=GitHub+Agentic+Workflows+-+Copilot+engine+authentication&user_copilot_requests=read) with **Copilot Requests** set to **Read**.
       <details>
@@ -67,6 +67,9 @@ Let's start in the pre-configured Codespace for this exercise. The dev container
         <img width="30%" alt="Repository actions secrets 2" src="https://github.com/msmohana/skills-agentic-workflows-that-read-the-room/blob/main/.github/images/repo-secrets-2.png?raw=true" />
         <img width="30%" alt="Repository actions secrets 3" src="https://github.com/msmohana/skills-agentic-workflows-that-read-the-room/blob/main/.github/images/repo-secrets-3.png?raw=true" />
       </details>
+
+   > [!IMPORTANT]
+   > The agent workflow must be able to authenticate Copilot inference with this token. If an agent job fails with HTTP 401, recreate the fine-grained token with **Copilot Requests: Read** enabled and replace the repository secret with the new token. A listed secret can still be expired, revoked, or lack the required permission.
 
 > [!CAUTION]
 > Never paste a real token into a comment, markdown file, pull request, or Copilot Chat message. Only add it through the repository secrets UI.

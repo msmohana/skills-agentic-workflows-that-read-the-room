@@ -14,6 +14,7 @@ network:
   allowed:
     - github.blog
     - github.com
+    - awesome-copilot.github.com
 
 safe-outputs:
   create-pull-request:
@@ -26,11 +27,11 @@ Update `site/content/github-info.md` with fresh GitHub details that fit Mona's n
 ## Required steps
 
 1. Read `notes/mona-notes.md` to understand Mona's preferences and the site context.
-2. Use web-fetch to read external public guidance, including `https://github.blog/latest/` and `https://github.blog/changelog/`.
+2. Use web-fetch to read external public guidance, including `https://github.blog/latest/`, `https://github.blog/changelog/`, and `https://awesome-copilot.github.com/workflows/`.
 3. Read repository guidance or reference files with GitHub repository API tools instead of terminal, CLI, or sandboxed commands.
 4. Review the current `site/content/github-info.md` and rewrite it with the latest, relevant GitHub facts.
 5. Use safe-outputs with `create-pull-request` so the change can be reviewed as a pull request for Mona.
-6. Keep the workflow focused on the GitHub Blog and GitHub Changelog as sources, and ensure the update is easy for Mona to review before merging.
+6. Keep the workflow focused on the GitHub Blog, GitHub Changelog, and Awesome Copilot workflows sources, and ensure the update is easy for Mona to review before merging.
 
 ## Review guidance
 
